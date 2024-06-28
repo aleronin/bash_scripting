@@ -37,11 +37,32 @@ basic() {
 
 }
 
+statisctics() {
+  
+  echo -e "\nThis is statistics parameters."
+  echo -e "\nFiles located in your \"pwd\" directory are:"
+  ls -la
+  echo -e "\nThat's it for now."
+}
+
 if [ $ARGS == basic ]
   then
     basic
     exit
+elif [ $ARGS == stat ]
+  then
+    statisctics
+    exit
   else
-    echo "There is no such argumets. Try to seek for --help."
+    echo "There is no such argument. Try to seek for --help."
 fi
 
+
+
+## if [ $ARGS == basic ]
+##   then
+##     basic
+##     exit
+##   else
+##     echo "There is no such argumets. Try to seek for --help."
+## fi
