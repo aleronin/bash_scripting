@@ -2,12 +2,28 @@
 
 set -e
 
-args=$1
-##################################################
+############
 ##
-## This will be a section for various of functions
+## Variables
 ##
-##################################################
+############
+
+ARGS=$1
+FILE=./logs/output.log
+
+##############################################
+##
+## Redirecting output to output.log file
+##
+##############################################
+
+exec > >(tee -a $FILE) 2> >(tee -a $FILE >&2) 
+
+####################################################
+##
+## This will be the section for various of functions
+##
+####################################################
 
 basic() {
 
@@ -21,7 +37,7 @@ basic() {
 
 }
 
-if [ $args == basic ]
+if [ $ARGS == basic ]
   then
     basic
     exit
